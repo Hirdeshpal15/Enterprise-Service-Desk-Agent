@@ -1,5 +1,5 @@
 """
-Complete Cloud Evaluation Script for Trail Guide Agent
+Complete Cloud Evaluation Script for it_service_desk Agent
 
 Runs the full evaluation pipeline:
 1. Uploads evaluation dataset to Microsoft Foundry
@@ -349,7 +349,7 @@ def retrieve_and_display_results(eval_object, run):
 
     lines = [
         "=" * 80,
-        " Trail Guide Agent - Evaluation Results",
+        " it_service_desk Agent - Evaluation Results",
         "=" * 80,
         f"\n  Eval ID      : {eval_object.id}",
         f"  Run ID       : {run.id}",
@@ -406,7 +406,7 @@ def retrieve_and_display_results(eval_object, run):
 
 def main() -> None:
     """Orchestrate the full evaluation pipeline step by step."""
-    section(" Trail Guide Agent - Cloud Evaluation")
+    section(" it_service_desk Agent - Cloud Evaluation")
     print(f"\nConfiguration:")
     print(f"  Project: {endpoint}")
     print(f"  Model:   {model_deployment_name}")
@@ -428,7 +428,7 @@ def main() -> None:
     except Exception as e:
         error_message = (
             f"{'=' * 80}\n"
-            f" Trail Guide Agent - Evaluation FAILED\n"
+            f" it_service_desk Agent - Evaluation FAILED\n"
             f"{'=' * 80}\n"
             f"\nError: {e}\n"
             f"\nTroubleshooting:\n"
