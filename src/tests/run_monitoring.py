@@ -55,7 +55,7 @@ chat_client = AzureOpenAI(
 )
 
 # Paths to prompt versions and test prompts
-PROMPTS_DIR = Path(__file__).parent.parent / "agents" / "trail_guide_agent" / "prompts"
+PROMPTS_DIR = Path(__file__).parent.parent / "agents" / "it_service_desk_agent" / "prompts"
 TEST_PROMPTS_DIR = Path(__file__).parent / "test-prompts"
 
 # Prompt versions to compare

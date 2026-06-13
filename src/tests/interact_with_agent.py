@@ -22,7 +22,7 @@ def interact_with_agent():
     )
     
     # Get agent name from environment or use default
-    agent_name = os.getenv("AGENT_NAME", "trail-guide-v1")
+    agent_name = os.getenv("AGENT_NAME", "service-desk-v1")
 
     openai_client = project_client.get_openai_client()
     

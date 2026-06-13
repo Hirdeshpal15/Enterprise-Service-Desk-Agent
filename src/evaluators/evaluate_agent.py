@@ -31,7 +31,7 @@ load_dotenv()  # reads variables from the .env file in your project root
 
 endpoint              = os.environ.get("AZURE_AI_PROJECT_ENDPOINT")
 model_deployment_name = os.environ.get("MODEL_NAME", "gpt-4.1")
-dataset_name          = "trail-guide-evaluation-dataset"
+dataset_name          = "service-desk-evaluation-dataset"
 dataset_version       = "1"
 
 # The script writes a plain-text summary here when it finishes.
@@ -87,7 +87,7 @@ def upload_dataset() -> str:
     dataset_path = (
         Path(__file__).parent.parent.parent
         / "data"
-        / "trail_guide_evaluation_dataset.jsonl"
+        / "service_desk_evaluation_dataset.jsonl"
     )
 
     if not dataset_path.exists():
@@ -196,7 +196,7 @@ def create_evaluation_definition():
 
     print("\nCreating evaluation...")
     eval_object = client.evals.create(
-        name="Trail Guide Quality Evaluation",
+        name="Service Desk Quality Evaluation",
         data_source_config=data_source_config,
         testing_criteria=testing_criteria,
     )
@@ -221,7 +221,7 @@ def run_evaluation(eval_object, data_id):
 
     eval_run = client.evals.runs.create(
         eval_id=eval_object.id,
-        name="trail-guide-baseline-eval",
+        name="service-desk-baseline-eval",
         data_source=CreateEvalJSONLRunDataSourceParam(
             type="jsonl",
             source=SourceFileID(

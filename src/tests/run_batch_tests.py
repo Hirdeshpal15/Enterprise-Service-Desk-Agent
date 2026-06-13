@@ -54,8 +54,8 @@ def run_batch_tests(experiment_name):
 
     openai_client = client.get_openai_client()
     
-    # Get the agent by name (assumes trail_guide_agent.py already created it)
-    agent_name = os.environ.get("AGENT_NAME", "trail-guide")
+    # Get the agent by name (assumes it_service_desk_agent.py already created it)
+    agent_name = os.environ.get("AGENT_NAME", "service-desk-v1")
     
     # List agents and find the one with our name
     agents = client.agents.list()
@@ -67,7 +67,7 @@ def run_batch_tests(experiment_name):
     
     if not agent:
         print(f"Error: No agent found with name '{agent_name}'")
-        print("Please run 'python src/agents/trail_guide_agent/trail_guide_agent.py' first to create the agent.")
+        print("Please run 'python src/agents/it_service_desk_agent/it_service_desk_agent.py' first to create the agent.")
         return
     
     print(f"Using agent: {agent.name} (id: {agent.id}, version: {agent.versions})")
@@ -155,7 +155,7 @@ if __name__ == "__main__":
         print("Usage: python run-batch-tests.py <experiment-name>")
         print("\nExample:")
         print("  python run-batch-tests.py optimized-concise")
-        print("\nNote: Make sure to run 'python src/agents/trail_guide_agent/trail_guide_agent.py' first")
+        print("\nNote: Make sure to run 'python src/agents/it_service_desk_agent/it_service_desk_agent.py' first")
         sys.exit(1)
     
     experiment_name = sys.argv[1]
