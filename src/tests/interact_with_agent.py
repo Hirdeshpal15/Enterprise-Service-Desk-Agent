@@ -1,5 +1,5 @@
 """
-Interactive test script for Trail Guide Agent.
+Interactive test script for Enterprise Service Desk Agent.
 Allows you to chat with the agent from the terminal.
 """
 import os
@@ -13,7 +13,7 @@ from azure.ai.projects import AIProjectClient
 load_dotenv()
 
 def interact_with_agent():
-    """Start an interactive chat session with the Trail Guide Agent."""
+    """Start an interactive chat session with the Enterprise Service Desk Agent."""
     
     # Initialize project client
     project_client = AIProjectClient(
@@ -27,7 +27,7 @@ def interact_with_agent():
     openai_client = project_client.get_openai_client()
     
     print(f"\n{'='*60}")
-    print(f"Trail Guide Agent - Interactive Chat")
+    print(f" Enterprise Service Desk Agent - Interactive Chat")
     print(f"Agent: {agent_name}")
     print(f"{'='*60}")
     print("\nType your questions or requests. Type 'exit' or 'quit' to end the session.\n")
