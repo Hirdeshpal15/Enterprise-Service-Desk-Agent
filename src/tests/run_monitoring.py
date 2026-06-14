@@ -1,4 +1,4 @@
-"""Run all test prompts against trail guide prompt versions (v1, v2, v3)
+"""Run all test prompts against IT_service_desk prompt versions (v1, v2, v3)
 with Application Insights monitoring and distributed tracing.
 
 This script:
@@ -82,7 +82,7 @@ def run_version(version: str, system_prompt: str, test_prompts: dict):
     print(f"Running {version.upper()} — {len(test_prompts)} test prompts")
     print(f"{'='*60}")
 
-    with tracer.start_as_current_span(f"trail_guide_{version}") as version_span:
+    with tracer.start_as_current_span(f"service_desk{version}") as version_span:
         version_span.set_attribute("prompt.version", version)
         version_span.set_attribute("session.id", session_id)
         version_span.set_attribute("model", model_name)
