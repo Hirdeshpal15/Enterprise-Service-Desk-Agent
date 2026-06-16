@@ -76,7 +76,8 @@ Question:
 
     return {
         "document": retrieval_result["document"],
-        "answer": response.choices[0].message.content
+        "chunk_id": retrieval_result["chunk_id"],
+        "answer": response.choices[0].message.content,
     }
 
 
@@ -89,6 +90,10 @@ if __name__ == "__main__":
 
         result = ask(question)
 
-        print(f"\nRetrieved: {result['document']}")
+        print(
+            f"\nRetrieved: "
+            f"{result['document']} "
+            f"(chunk {result['chunk_id']})"
+        )
         print("\nAnswer:")
         print(result["answer"])

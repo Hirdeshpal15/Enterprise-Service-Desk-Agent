@@ -1,39 +1,34 @@
 from pathlib import Path
 
+from chunker import DocumentChunker
+
 
 class PolicyRetriever:
     def __init__(self, knowledge_dir: Path):
-        self.knowledge_dir = knowledge_dir
-        self.documents = self._load_documents()
-
-    def _load_documents(self):
-        documents = {}
-
-        for file in self.knowledge_dir.glob("*.md"):
-            documents[file.name] = file.read_text()
-
-        return documents
+        self.chunker = DocumentChunker()
+        self.chunks = self.chunker.load_chunks(knowledge_dir)
 
     def retrieve(self, question: str):
         question_words = question.lower().split()
 
         best_score = -1
-        best_document = None
-        best_content = ""
+        best_chunk = None
 
-        for filename, content in self.documents.items():
+        for chunk in self.chunks:
+
             score = sum(
-                1 for word in question_words
-                if word in content.lower()
+                1
+                for word in question_words
+                if word in chunk["content"].lower()
             )
 
             if score > best_score:
                 best_score = score
-                best_document = filename
-                best_content = content
+                best_chunk = chunk
 
         return {
-            "document": best_document,
+            "document": best_chunk["document"],
+            "chunk_id": best_chunk["chunk_id"],
             "score": best_score,
-            "content": best_content
+            "content": best_chunk["content"],
         }
