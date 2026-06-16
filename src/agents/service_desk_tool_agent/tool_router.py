@@ -1,3 +1,12 @@
+"""
+V3.0 Rule-Based Tool Router
+
+Retained for comparison with GPT-powered routing.
+"""
+
+
+
+
 def determine_action(user_input: str):
     text = user_input.lower()
 

@@ -1,4 +1,4 @@
-from src.agents.service_desk_tool_agent.tool_router import determine_action
+from src.agents.service_desk_tool_agent.gpt_router import determine_action
 
 from src.tools.create_ticket import create_ticket
 from src.tools.ticket_status import get_ticket_status
@@ -7,19 +7,45 @@ from src.tools.password_reset import request_password_reset
 
 def handle_request(user_input: str):
 
-    action = determine_action(user_input)
+    routing_result = determine_action(user_input)
+
+    action = routing_result["tool"]
 
     if action == "create_ticket":
-        return create_ticket(
-            issue_type="General Issue",
-            description=user_input,
+
+        issue_type = routing_result.get(
+            "issue_type",
+            "General Issue"
         )
 
+        description = routing_result.get(
+            "description",
+            user_input
+        )
+
+        return create_ticket(
+            issue_type=issue_type,
+            description=description,
+        )
+
+
     elif action == "ticket_status":
-        return get_ticket_status("INC-10001")
+
+        ticket_id = routing_result.get(
+            "ticket_id",
+            "INC-10001"
+        )
+
+        return get_ticket_status(ticket_id)
 
     elif action == "password_reset":
-        return request_password_reset("test.user")
+
+        username = routing_result.get(
+            "username",
+            "test.user"
+        )
+
+        return request_password_reset(username)
 
     return {
         "message": "I could not determine the correct action."
