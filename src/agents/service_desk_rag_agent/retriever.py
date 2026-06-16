@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from chunker import DocumentChunker
+from src.agents.service_desk_rag_agent.chunker import DocumentChunker
 
 
 class PolicyRetriever:

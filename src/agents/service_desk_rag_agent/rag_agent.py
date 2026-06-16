@@ -8,7 +8,7 @@ from azure.identity import (
 )
 from openai import AzureOpenAI
 
-from retriever import PolicyRetriever
+from src.agents.service_desk_rag_agent.retriever import PolicyRetriever
 
 load_dotenv()
 
