@@ -1,3 +1,12 @@
+## Development Status
+
+The latest development work is currently available on the `feature/service-desk-tools` branch, which contains:
+
+- V2 RAG Agent
+- V3 Tool Agent
+- V3.4 Unified Service Desk Agent
+- Documentation and architecture diagrams
+
 # Enterprise Service Desk Agent
 
 An AI-powered Enterprise Service Desk Assistant built using Azure AI Foundry, Azure OpenAI, Retrieval-Augmented Generation (RAG), and Tool Calling.
