@@ -5,7 +5,7 @@ The latest development work is currently available on the `feature/service-desk-
 - V2 RAG Agent
 - V3 Tool Agent
 - V3.4 Unified Service Desk Agent
-- Documentation and architecture diagrams
+- Documentation and architecture diagrams.
 
 # Enterprise Service Desk Agent
 
